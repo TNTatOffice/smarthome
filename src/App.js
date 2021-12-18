@@ -7,7 +7,20 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const toggleForm = useCallback(() => {
     setShowForm(!showForm);
-  }, [showForm]);
+  }, [showForm]); 
+
+  // Room selection
+function selectRoom(){
+  const value = document.getElementById('select');
+  const bedroom=document.getElementById('bedroom');
+  // const kitchen=document.getElementById('kitchen');
+  // const bathroom=document.getElementById('bathroom');
+  if(value===bedroom)
+  {
+    console.log('Bedroom');
+  }  
+}
+
 
   return (
     <div className="App">
@@ -23,7 +36,7 @@ function App() {
             <option value="Kitchen" id="kitchen">Kitchen</option>
             <option value="Bathroom" id="bathroom">Bathroom</option>
           </select><br/>
-          <button id="add">Add Room</button>
+          <button type="button" id="add" onClick={selectRoom}>Add Room</button>
         </form>
       ) : null}
     </div>
