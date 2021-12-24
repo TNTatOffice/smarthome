@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
+import Rooms from "./components/Rooms"
 import AddRoomButton from "./components/AddRoomButton";
 
 function App() {
@@ -21,16 +22,21 @@ function App() {
       <AddRoomButton onClick={toggleForm}>
         +
       </AddRoomButton>
-      <div>this is our {room}</div>
+      <div>
+      <Rooms selection={setRoom}/>
+      </div>
+
+
       {showForm ? (
         <form className="createRoom">
           <label htmlFor="add" className="formHeading">Select a Room</label><br/>
           <select value={room} name="room" id="select" onChange={selectRoom}>
+          <option value="Select" id="select">Select a Room</option>
             <option value="Bedroom" id="bedroom">Bedroom</option>
             <option value="Kitchen" id="kitchen">Kitchen</option>
             <option value="Bathroom" id="bathroom">Bathroom</option>
           </select><br/>
-          {/* <button type="button" id="add" onClick={selectRoom}>Add Room</button> */}
+          <button type="button" id="add" onClick={selectRoom}>Add Room</button>
         </form>
       ) : null}
     </div>
