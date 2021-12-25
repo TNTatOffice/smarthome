@@ -1,31 +1,29 @@
 import React, { useState, useCallback } from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
-import Rooms from "./components/Rooms"
+import DashboardArea from './components/DashboardArea'
 import AddRoomButton from "./components/AddRoomButton";
 
 function App() {
   const [showForm, setShowForm] = useState(false);
-  const [room, setRoom] = useState('');
+  const [room, setRoom] = useState([]);
   const toggleForm = useCallback(() => {
     setShowForm(!showForm);
   }, [showForm]); 
 
   const selectRoom = (e) => {
     console.log(e.target.value) 
-    setRoom(e.target.value);
+    setRoom([...room, e.target.value]);
   }
 
+  
   return (
     <div className="App">
-      <Dashboard title={"Welcome Home!"} />
+      <Dashboard title={"Welcome Home!"}/>
       <AddRoomButton onClick={toggleForm}>
         +
       </AddRoomButton>
-      <div>
-      <Rooms selection={room}/>
-      </div>
-
+      <DashboardArea addRoom={room}/>
 
       {showForm ? (
         <form className="createRoom">
