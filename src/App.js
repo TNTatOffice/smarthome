@@ -12,7 +12,7 @@ function App() {
   }, [showForm]); 
 
   const selectRoom = (e) => {
-    console.log(e.target.value)
+    console.log(e.target.value) 
     setRoom(e.target.value);
   }
 
@@ -23,7 +23,7 @@ function App() {
         +
       </AddRoomButton>
       <div>
-      <Rooms selection={setRoom}/>
+      <Rooms selection={room}/>
       </div>
 
 
